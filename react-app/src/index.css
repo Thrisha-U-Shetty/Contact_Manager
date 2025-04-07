@@ -1,0 +1,47 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+.header{
+  color: white;
+  background-color: rgb(15, 15, 77);
+  margin-top: 0;
+  text-align: center;
+}
+.header-center{
+  display: flex;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.AddContact{
+   display: flex;
+   flex-direction: column;
+   padding: 20px;
+}
+input{
+  border: 2px solid black;
+  width: 500px;
+  padding: 20px 40px;
+  margin: 10px;
+}
+.btn
+{
+  background-color: blue;
+  color: white;
+  padding: 10px 40px;
+  margin: 10px;
+  border: none;
+  border-radius: 15px;
+  margin-left: 300px;
+}
+.btn:hover{
+  background-color: rgb(26, 26, 197);
+}
+.trash
+{
+  color: rebeccapurple;
+}
