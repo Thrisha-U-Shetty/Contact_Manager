@@ -1,14 +1,10 @@
+import ContactCard from "./ContactCard";
 function ContactList({contacts})
 {
 
    const renderList = contacts.map((contact) =>{
     return(
-       <div className="list">
-          <div className="name">{contact.name}</div>
-          <div className="email">{contact.email}</div>
-          <i className="trash" class="fa fa-trash" aria-hidden="true"></i>
-
-       </div>
+       <ContactCard contact={contact}/>
     )
    })
 
@@ -16,8 +12,10 @@ function ContactList({contacts})
   return (
     <>
     <div className="ContactList">
-        <h2>Contact List</h2>
-        <div>{renderList}</div>
+        <h2 className="title">Contact List</h2>
+        <div className="c-list">
+        <div className="list">{renderList}</div>
+        </div>
     </div>
 
     </>

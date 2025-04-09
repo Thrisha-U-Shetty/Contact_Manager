@@ -45,3 +45,21 @@ input{
 {
   color: rebeccapurple;
 }
+.ContactList{
+  display: flex;
+  flex-direction: column;
+}
+.ContactList .title{
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
+.c-list{
+  border:none;
+}
+.list{
+  border: 1px solid white;
+  width: 500px;
+  padding: 20px 40px;
+  margin: 10px;
+}
