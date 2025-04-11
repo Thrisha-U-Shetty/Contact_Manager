@@ -1,21 +1,11 @@
 import './App.css'
+import React , {useState} from 'react'
 import Header from './Header.jsx'
 import AddContact from './AddContact.jsx'
 import ContactList from './ContactList.jsx'
 
 function App() {
-   const contacts =[
-    {
-      id:'1',
-      name:'Thrisha',
-      email:'thrisha@gmail.com'
-    },
-    {
-      id:'2',
-      name:'Yash',
-      email:'yash@gmail.com'
-    }
-   ]
+   const [contacts , setContacts] =useState([]);
 
   return (
   <>

@@ -4,7 +4,7 @@ function ContactList({contacts})
 
    const renderList = contacts.map((contact) =>{
     return(
-       <ContactCard contact={contact}/>
+       <ContactCard contact={contact} key={contact.id}/>
     )
    })
 
@@ -14,8 +14,9 @@ function ContactList({contacts})
     <div className="ContactList">
         <h2 className="title">Contact List</h2>
         <div className="c-list">
-        <div className="list">{renderList}</div>
-        </div>
+              {renderList}
+</div>
+
     </div>
 
     </>
