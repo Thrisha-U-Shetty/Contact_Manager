@@ -5,12 +5,18 @@ import AddContact from './AddContact.jsx'
 import ContactList from './ContactList.jsx'
 
 function App() {
+   
    const [contacts , setContacts] =useState([]);
    
    const addContactHandler = (contact) =>{
       console.log(contact);
       setContacts([...contacts , contact])
    }
+
+   useEffect(()=>
+   {
+        localStorage.setItem()
+   },[contacts])
 
   return (
   <>
