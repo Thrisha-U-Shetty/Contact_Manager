@@ -5,17 +5,28 @@ import AddContact from './AddContact.jsx'
 import ContactList from './ContactList.jsx'
 
 function App() {
-   
+   const LOCAL_STORAGE_KEY ="contacts";
    const [contacts , setContacts] =useState([]);
    
    const addContactHandler = (contact) =>{
-      console.log(contact);
-      setContacts([...contacts , contact])
+      const newContact = {
+         id: Date.now(), 
+         ...contact
+       };
+      setContacts([...contacts , newContact])
    }
+   useEffect(()=>
+      {
+           const retrivecontact = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+           if(retrivecontact) {
+            setContacts(retrivecontact);
+           }
+         },[])
+   
 
    useEffect(()=>
    {
-        localStorage.setItem()
+        localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(contacts));
    },[contacts])
 
   return (
