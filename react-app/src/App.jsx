@@ -1,45 +1,39 @@
-import './App.css'
-import React , {useState , useEffect} from 'react'
-// import {uuid} from 'uuidv4';
-import Header from './Header.jsx'
-import AddContact from './AddContact.jsx'
-import ContactList from './ContactList.jsx'
+import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+import AddContact from "./AddContact";
+import ContactList from "./ContactList";
 
 function App() {
-   const LOCAL_STORAGE_KEY ="contacts";
-   const [contacts , setContacts] =useState([]);
-   
-   const addContactHandler = (contact) =>{
-      setContacts([...contacts , contact]);
-   };
+  const LOCAL_STORAGE_KEY = "contacts";
+  const [contacts, setContacts] = useState([]);
 
-   const removeContactHandler = (id) =>{
-      const newContactList = contacts.filter((contact) =>{
-         return contact.id !== id;
-      });
+  const addContactHandler = (contact) => {
+    setContacts([...contacts, { id: uuidv4(), ...contact }]);
+  };
 
-      setContacts(newContactList);
-   }
+  const removeContactHandler = (id) => {
+    const newContactList = contacts.filter((contact) => contact.id !== id);
+    setContacts(newContactList);
+  };
 
-   useEffect(()=>
-      {
-           const retrivecontact = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-           if(retrivecontact)  setContacts(retrivecontact);
-         },[])
-   
+  useEffect(() => {
+    const retrievedContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (retrievedContacts) setContacts(retrievedContacts);
+  }, []);
 
-   useEffect(()=>
-   {
-        localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(contacts));
-   },[contacts])
+  useEffect(() => {
+    if (contacts.length > 0) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+    }
+  }, [contacts]);
 
   return (
-  <>
-     <Header/>
-     <AddContact addContactHandler={addContactHandler}/>
-     <ContactList contacts={contacts} getContactId ={removeContactHandler}/>
-  </>
-  )
+    <div>
+      <h1>Contact Management</h1>
+      <AddContact addContactHandler={addContactHandler} />
+      <ContactList contacts={contacts} getContactId={removeContactHandler} />
+    </div>
+  );
 }
 
-export default App
+export default App;
