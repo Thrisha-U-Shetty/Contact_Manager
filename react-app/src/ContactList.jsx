@@ -2,9 +2,13 @@ import ContactCard from "./ContactCard";
 function ContactList({contacts})
 {
 
+  const deleteConatct =(id) =>{
+    props.getContactId(id)
+  }
+
    const renderList = contacts.map((contact) =>{
     return(
-       <ContactCard contact={contact} key={contact.id}/>
+       <ContactCard contact={contact} clickHandler={deleteConatct} key={contact.id} />
     )
    })
 

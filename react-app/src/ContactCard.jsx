@@ -7,7 +7,11 @@ function ContactCard({ contact })
     <div className="email">{email}</div>
     <div className="name">{name}</div>
   </div>
-  <i className="trash fa fa-trash" aria-hidden="true"></i>
+  <i className="trash fa fa-trash" aria-hidden="true" style={{color : "red" }}
+     onClick={() => props.clickHandler(id)}
+  
+  
+  ></i>
 </div>
 
    )
